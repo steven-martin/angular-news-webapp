@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
 import { ArticlesComponent } from './components/articles/articles.component';
-import { PageComponent } from './components/page/page.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { InfoComponent } from './components/info/info.component';
 import { TimeAgoPipe } from './pipes/time-ago/time-ago.pipe';
 import { ArticleService } from './services/article/article.service';
 
@@ -14,10 +13,9 @@ import { ArticleService } from './services/article/article.service';
   declarations: [
     AppComponent,
     ArticlesComponent,
-    PageComponent,
     FooterComponent,
-    InfoComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
