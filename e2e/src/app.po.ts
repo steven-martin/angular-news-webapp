@@ -10,11 +10,11 @@ export class AppPage {
   }
 
   getPageInfoHeader() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('.header')).getText();
   }
 
   getArticles() {
-    return element(by.css('app-root app-page div.board app-articles div.articles')).getText();
+    return element(by.css('.articles')).getText();
   }
 
   getFooter() {

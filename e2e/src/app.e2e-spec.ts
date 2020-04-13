@@ -25,6 +25,6 @@ describe('The main Angular News main page', () => {
   it('should display the developer credit in the footer', () => {
     page.navigateTo();
     expect(page.getFooter()).toContain('Developed by');
-    expect(page.getFooter()).toContain('StevenPaulMartin.uk');
+    expect(page.getFooter()).toContain('Steven Martin');
   });
 });

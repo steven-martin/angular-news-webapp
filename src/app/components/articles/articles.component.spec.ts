@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ArticlesComponent } from './articles.component';
-import { PageComponent } from '../page/page.component';
-import { InfoComponent } from '../info/info.component';
 
 import { TimeAgoPipe } from '../../pipes/time-ago/time-ago.pipe';
 
@@ -36,8 +34,6 @@ describe('ArticlesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ArticlesComponent,
-        PageComponent,
-        InfoComponent,
         TimeAgoPipe
        ],
        imports: [
