@@ -19,7 +19,21 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('Construction()', () => {
+    it('should create', async(() => {
+      // Arrange, Act, Assert
+      expect(component).toBeTruthy();
+    }));
+  });
+
+  describe('HTML Template', () => {
+    it('should display the footer', async(() => {
+      // Arrange, Act
+      fixture.detectChanges();
+
+      // Assert
+      const article_description = fixture.nativeElement.querySelectorAll('.header');
+      expect(article_description[0].textContent).toContain('ANGULAR NEWS');
+    }));
   });
 });

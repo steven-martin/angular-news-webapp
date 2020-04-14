@@ -1,6 +1,6 @@
 <div class="articles">
   <div class="article" *ngFor="let article of articles">
-      <a href="{{ article.article_link }}">
+      <a href="{{ article.article_link }}" data-qa="article_link">
         <div class="article_image_container">
           <img src="{{ article.article_photo }}" class="article_image">
         </div>
@@ -8,7 +8,7 @@
           <img src="/assets/images/badges/{{ article.category_badge }}.png" class="badge_image">
         </div>
         <div class="badge_description_container">
-          <span>{{ article.category }}</span>
+          <span data-qa="article_category">{{ article.category }}</span>
         </div>
       </a>
       <div class="article_text_container">
@@ -17,7 +17,7 @@
             <p>{{ article.article_description }}</p>
           </div>
         </a>
-        <a href="{{ article.source_url }}">
+        <a href="{{ article.source_url }}" data-qa="source_url">
           <div class="article_source_section">
             <img src="{{ article.source_photo }}" class="article_byline_image">
             <p>{{ article.source_name }}<br>

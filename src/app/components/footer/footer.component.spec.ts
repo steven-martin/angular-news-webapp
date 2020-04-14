@@ -19,7 +19,21 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('Construction()', () => {
+    it('should create', async(() => {
+      // Arrange, Act, Assert
+      expect(component).toBeTruthy();
+    }));
+  });
+
+  describe('HTML Template', () => {
+    it('should display the footer', async(() => {
+      // Arrange, Act
+      fixture.detectChanges();
+
+      // Assert
+      const article_description = fixture.nativeElement.querySelectorAll('footer');
+      expect(article_description[0].textContent).toContain('Developed by Steven Martin');
+    }));
   });
 });

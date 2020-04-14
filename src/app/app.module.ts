@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TimeAgoPipe } from './pipes/time-ago/time-ago.pipe';
-import { ArticleService } from './services/article/article.service';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { ArticleService } from './services/article.service';
 
 @NgModule({
   declarations: [

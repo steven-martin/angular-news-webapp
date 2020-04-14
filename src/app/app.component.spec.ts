@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 
-import { ArticleService } from './services/article/article.service';
+import { ArticleService } from './services/article.service';
 
-import { TimeAgoPipe } from './pipes/time-ago/time-ago.pipe';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { HeaderComponent } from './components/header/header.component';
 
 describe('AppComponent', () => {
@@ -31,9 +31,12 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+
+  describe('Construction()', () => {
+    it('should create the app', async(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      expect(app).toBeTruthy();
+    }));
+  });
 });
