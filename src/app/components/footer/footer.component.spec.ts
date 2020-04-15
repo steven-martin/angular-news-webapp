@@ -8,9 +8,8 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
-    })
-    .compileComponents();
+      declarations: [FooterComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -32,8 +31,12 @@ describe('FooterComponent', () => {
       fixture.detectChanges();
 
       // Assert
-      const article_description = fixture.nativeElement.querySelectorAll('footer');
-      expect(article_description[0].textContent).toContain('Developed by Steven Martin');
+      const article_description = fixture.nativeElement.querySelectorAll(
+        'footer'
+      );
+      expect(article_description[0].textContent).toContain(
+        'Developed by Steven Martin'
+      );
     }));
   });
 });

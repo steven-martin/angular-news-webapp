@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
 } from '@angular/common/http/testing';
 import { ArticleService } from './article.service';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,7 @@ describe('ArticleService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ArticleService]
+      providers: [ArticleService],
     });
     service = TestBed.inject(ArticleService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -21,9 +21,10 @@ describe('ArticleService', () => {
 
   afterEach(() => {
     httpTestingController.verify();
-});
+  });
 
   describe('Constructor()', () => {
+    // Arrange, Act, Assert
     it('should be created', () => {
       expect(service).toBeTruthy();
     });
@@ -43,7 +44,7 @@ describe('ArticleService', () => {
         score: 0,
         category: '',
         category_badge: '',
-        tags: ''
+        tags: '',
       };
 
       // Act

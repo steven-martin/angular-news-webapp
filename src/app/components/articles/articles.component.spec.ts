@@ -7,21 +7,25 @@ import { ArticleService } from '../../services/article.service';
 import { Article } from 'src/app/model/article';
 import { of } from 'rxjs';
 
-const articleServiceSpy = jasmine.createSpyObj('ArticleService', ['getArticles']);
-const mock: Article[] = [{
-  source_name: 'mock',
-  source_photo: 'http://mock.com/source_photo',
-  source_url: 'http://mock.com/',
-  article_description: 'this is a mock',
-  article_link: 'http://mock.com/',
-  article_photo: 'http://mock.com/photo',
-  date: 'today',
-  timestamp: 1,
-  score: 100,
-  category: 'mock',
-  category_badge: 'mock',
-  tags: ''
-}];
+const articleServiceSpy = jasmine.createSpyObj('ArticleService', [
+  'getArticles',
+]);
+const mock: Article[] = [
+  {
+    source_name: 'mock',
+    source_photo: 'http://mock.com/source_photo',
+    source_url: 'http://mock.com/',
+    article_description: 'this is a mock',
+    article_link: 'http://mock.com/',
+    article_photo: 'http://mock.com/photo',
+    date: 'today',
+    timestamp: 1,
+    score: 100,
+    category: 'mock',
+    category_badge: 'mock',
+    tags: '',
+  },
+];
 articleServiceSpy.getArticles.and.returnValue(of(mock));
 
 describe('ArticlesComponent', () => {
@@ -30,19 +34,10 @@ describe('ArticlesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ArticlesComponent,
-        TimeAgoPipe
-       ],
-       imports: [
-        BrowserModule,
-        HttpClientModule
-      ],
-      providers: [
-        {provide: ArticleService, useValue: articleServiceSpy}
-      ]
-    })
-    .compileComponents();
+      declarations: [ArticlesComponent, TimeAgoPipe],
+      imports: [BrowserModule, HttpClientModule],
+      providers: [{ provide: ArticleService, useValue: articleServiceSpy }],
+    }).compileComponents();
   }));
 
   beforeEach(async(() => {
@@ -77,16 +72,28 @@ describe('ArticlesComponent', () => {
       fixture.detectChanges();
 
       // Assert
-      const article_photo = fixture.nativeElement.querySelectorAll('.article_image');
-      expect(article_photo[0].getAttribute('src')).toEqual(mock[0].article_photo);
+      const article_photo = fixture.nativeElement.querySelectorAll(
+        '.article_image'
+      );
+      expect(article_photo[0].getAttribute('src')).toEqual(
+        mock[0].article_photo
+      );
 
-      const article_category = fixture.nativeElement.querySelectorAll('[data-qa="article_category"]');
+      const article_category = fixture.nativeElement.querySelectorAll(
+        '[data-qa="article_category"]'
+      );
       expect(article_category[0].textContent).toEqual(mock[0].category);
 
-      const article_description = fixture.nativeElement.querySelectorAll('.article_description');
-      expect(article_description[0].textContent).toContain(mock[0].article_description);
+      const article_description = fixture.nativeElement.querySelectorAll(
+        '.article_description'
+      );
+      expect(article_description[0].textContent).toContain(
+        mock[0].article_description
+      );
 
-      const source_photo = fixture.nativeElement.querySelectorAll('.article_byline_image');
+      const source_photo = fixture.nativeElement.querySelectorAll(
+        '.article_byline_image'
+      );
       expect(source_photo[0].getAttribute('src')).toEqual(mock[0].source_photo);
     }));
 
@@ -96,8 +103,12 @@ describe('ArticlesComponent', () => {
       fixture.detectChanges();
 
       // Assert
-      const article_link = fixture.nativeElement.querySelectorAll('[data-qa="article_link"]');
-      expect(article_link[0].getAttribute('href')).toEqual(mock[0].article_link);
+      const article_link = fixture.nativeElement.querySelectorAll(
+        '[data-qa="article_link"]'
+      );
+      expect(article_link[0].getAttribute('href')).toEqual(
+        mock[0].article_link
+      );
     }));
 
     it('should display an article object with the correct source link', async(() => {
@@ -106,7 +117,9 @@ describe('ArticlesComponent', () => {
       fixture.detectChanges();
 
       // Assert
-      const source_url = fixture.nativeElement.querySelectorAll('[data-qa="source_url"]');
+      const source_url = fixture.nativeElement.querySelectorAll(
+        '[data-qa="source_url"]'
+      );
       expect(source_url[0].getAttribute('href')).toEqual(mock[0].source_url);
     }));
   });

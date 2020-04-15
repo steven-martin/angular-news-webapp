@@ -14,15 +14,10 @@ import { ArticleService } from './services/article.service';
     ArticlesComponent,
     FooterComponent,
     TimeAgoPipe,
-    HeaderComponent
+    HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
-  providers: [
-    ArticleService
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, HttpClientModule],
+  providers: [ArticleService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

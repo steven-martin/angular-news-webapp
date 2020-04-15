@@ -6,8 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ArticleService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(environment.apiUrl);

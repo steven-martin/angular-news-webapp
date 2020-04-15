@@ -1,14 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
-
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticlesComponent } from './components/articles/articles.component';
-
 import { ArticleService } from './services/article.service';
-
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -20,15 +16,10 @@ describe('AppComponent', () => {
         FooterComponent,
         HeaderComponent,
         ArticlesComponent,
-        TimeAgoPipe
+        TimeAgoPipe,
       ],
-      imports: [
-        BrowserModule,
-        HttpClientModule
-      ],
-      providers: [
-        ArticleService
-      ],
+      imports: [BrowserModule, HttpClientModule],
+      providers: [ArticleService],
     }).compileComponents();
   }));
 
