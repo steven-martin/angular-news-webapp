@@ -1,5 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
-
+import { async } from '@angular/core/testing';
 import { TimeAgoPipe } from './time-ago.pipe';
 
 describe('TimeAgoPipe', () => {

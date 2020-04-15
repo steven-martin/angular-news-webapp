@@ -12,11 +12,11 @@ export class TimeAgoPipe implements PipeTransform {
     // current time
     const now = new Date().getTime();
 
-    // time since message was sent in seconds
+    // time since the provided date value
     const deltaDate: Date = new Date(value);
     const delta = (now - deltaDate.getTime()) / 1000;
 
-    // format string
+    // format the value into a valid string
     if (delta < 60) {
       result = 'Just Now.';
     } else if (delta < 130) { // sent in last minute
@@ -28,7 +28,6 @@ export class TimeAgoPipe implements PipeTransform {
     } else { // sent more than one day ago
       result = 'Posted about ' + Math.floor(delta / 86400) + ' days ago.';
     }
-
     return result;
   }
 }

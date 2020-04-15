@@ -21,11 +21,11 @@
     "test": "ng test",
     "test:watch": "ng test --watch=true",
     "test:headless": "ng test --browsers ChromeHeadless",
-    "test:coverage": "ng test --code-coverage --browsers ChromeHeadless",
+    "test:coverage": "ng test --code-coverage --browsers=ChromeHeadless",
     "test:report": "npm run test:coverage && http-server -c-1 -o -p 9875 ./coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ci": "npm run lint && npm run build && npm run test:coverage"
+    "ci": "npm run lint && npm run build:prod && npm run test:coverage"
   },
   "dependencies": {
     "@angular/animations": "^9.0.7",
