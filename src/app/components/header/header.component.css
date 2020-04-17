@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px 60px;
+  padding: 10px 60px 10px 80px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -14,5 +14,15 @@
   background-repeat: no-repeat;
   background-position: 12px 2px;
   background-size: 40px;
-  opacity: 0.9;
+  text-align: right;
+}
+
+#title {
+  padding-right: 100px;
+}
+
+@media only screen and (min-width: 780px) {
+  .header {
+    text-align: left;
+  }
 }
