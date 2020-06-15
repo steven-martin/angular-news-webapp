@@ -21,7 +21,7 @@ body {
   padding: 0px;
   font-family: SourceSansPro, Verdana, Sans-Serif;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 a {
@@ -39,4 +39,40 @@ p {
 
 .highlight_name {
   color: #ee9514;
+}
+
+@media only screen {
+  .articles {
+    width: 345px;
+    padding-left: 0px;
+  }
+
+  .board {
+    width: 347px;
+    margin: 0px auto;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .article {
+    border: 1px solid #ddd;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .articles {
+    width: 720px;
+    padding-left: 7px;
+  }
+
+  .board {
+    width: 720px;
+    margin: 20px auto;
+  }
+
+  .info {
+    text-align: left;
+  }
 }
