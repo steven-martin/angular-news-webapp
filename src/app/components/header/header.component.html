@@ -1,3 +1,35 @@
-<div class="header">
-  <div id="title">ANGULAR NEWS</div>
+<div class="header-bar">
+  <div class="catagories wide-nav">
+      <div class="catagory" [class.selected]="!selected" routerLink='/'>Latest</div>
+      <div *ngFor="let catagory of catagories"
+        routerLink="/{{ catagory }}"
+        class="catagory"
+        [class.selected]="selected === catagory"
+        >{{ catagory }}</div>
+  </div>
+  <div class="catagories mobile-nav">
+    <div #hamburger class="hamburger" (click)="menuToggle()" [ngClass]="mobileMenuOpen ? 'open' : null">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+  <div class="hero">
+    <img class="hero-image" src="/assets/images/angular.png">
+  </div>
+</div>
+<div class="mobile-menu" [ngClass]="mobileMenuOpen ? 'open' : null">
+  <div class="catagory" [class.selected]="!selected" routerLink='/'>Latest</div>
+  <div *ngFor="let catagory of catagories"
+    (click)="mobileMenuOpen=false"
+    routerLink="/{{ catagory }}"
+    class="catagory"
+    [class.selected]="selected === catagory"
+    >{{ catagory }}</div>
+</div>
+<p class="introduction">
+  Angular news from the very best Tech Journalists.
+</p>
+<div class="filter" *ngIf="selected">
+  <p>Filtering on the latest news for <b>{{ selected }}</b>.</p>
 </div>

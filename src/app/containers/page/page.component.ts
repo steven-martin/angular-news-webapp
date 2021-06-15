@@ -24,6 +24,7 @@ export class PageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.filter = params.filter;
       this.articleService.catagories.subscribe((articles) => {
+        console.log('params.filter', params.filter);
         if ((this.filter) && (articles[this.filter])) {
           this.articles = <Article[]>articles[this.filter];
         } else {
