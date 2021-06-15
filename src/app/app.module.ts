@@ -7,18 +7,21 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { ArticleService } from './services/article.service';
-import { PageComponent } from './components/page/page.component';
+import { PageComponent } from './containers/page/page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticlesComponent,
+    PageComponent,
     FooterComponent,
     TimeAgoPipe,
     HeaderComponent,
-    PageComponent,
+    ArticleComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [ArticleService],
   bootstrap: [AppComponent],
 })

@@ -1,15 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-    }).compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ HeaderComponent ]
+    })
+    .compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
@@ -18,22 +20,105 @@ describe('HeaderComponent', () => {
   });
 
   describe('Construction()', () => {
-    it('should create', async(() => {
+    it('should create', waitForAsync(() => {
       // Arrange, Act, Assert
       expect(component).toBeTruthy();
     }));
   });
 
+  describe('menuToggle()', () => {
+    it('should set the boolean value of mobileMenuOpen from FALSE to TRUE', waitForAsync(() => {
+      // Arrange
+      component.mobileMenuOpen = false;
+
+      // Act
+      component.menuToggle();
+
+      // Assert
+      expect(component.mobileMenuOpen).toEqual(true);
+    }));
+
+    it('should set the boolean value of mobileMenuOpen from TRUE to FALSE', waitForAsync(() => {
+      // Arrange
+      component.mobileMenuOpen = true;
+
+      // Act
+      component.menuToggle();
+
+      // Assert
+      expect(component.mobileMenuOpen).toEqual(false);
+    }));
+  });
+
   describe('HTML Template', () => {
-    it('should display the footer', async(() => {
-      // Arrange, Act
+    it('should display the header bar with the available catagories', waitForAsync(() => {
+      // Arrange
+      component.catagories = ['mock1', 'mock2', 'mock3'];
+
+      // Act
       fixture.detectChanges();
 
       // Assert
-      const article_description = fixture.nativeElement.querySelectorAll(
-        '.header'
-      );
-      expect(article_description[0].textContent).toContain('ANGULAR NEWS');
+      const header = fixture.nativeElement.querySelector('.header-bar');
+      expect(header).toBeTruthy();
+      const catagories = fixture.nativeElement.querySelectorAll('.wide-nav .catagory');
+      expect(catagories.length).toEqual(4);
+    }));
+
+    it('should display the mobile menu if mobileMenuOpen = TRUE', waitForAsync(() => {
+      // Arrange
+      component.mobileMenuOpen = true;
+
+      // Act
+      fixture.detectChanges();
+
+      // Assert
+      const mobileMenu = fixture.nativeElement.querySelector('.mobile-menu');
+      expect(mobileMenu).toBeTruthy();
+      expect(mobileMenu).toHaveClass('open');
+    }));
+
+    it('should NOT display the mobile menu if mobileMenuOpen = FALSE', waitForAsync(() => {
+      // Arrange
+      component.mobileMenuOpen = false;
+
+      // Act
+      fixture.detectChanges();
+
+      // Assert
+      const mobileMenu = fixture.nativeElement.querySelector('.mobile-menu');
+      expect(mobileMenu).toBeTruthy();
+      expect(mobileMenu).not.toHaveClass('open');
     }));
   });
+
+  it(
+    'should NOT display the filter section if filter is selected',
+    waitForAsync(() => {
+      // Arrange, Act
+      component.selected = null;
+      fixture.detectChanges();
+
+      // Assert
+      const section = fixture.nativeElement.querySelector(
+        '.filter'
+      );
+      expect(section).toBeFalsy();
+    })
+  );
+
+  it(
+    'should display the filter section if filter is selected',
+    waitForAsync(() => {
+      // Arrange, Act
+      component.selected = 'news';
+      fixture.detectChanges();
+
+      // Assert
+      const section = fixture.nativeElement.querySelector(
+        '.filter'
+      );
+      expect(section).toBeTruthy();
+    })
+  );
 });
