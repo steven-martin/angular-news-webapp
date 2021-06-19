@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://angular.news/api/'
+  apiUrl: 'https://www.angular.news/api/'
 };
